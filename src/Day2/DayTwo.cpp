@@ -28,12 +28,9 @@ void DayTwo::parseInput() {
             currentMatch++;
         }
     }
-    for (auto& e : parsedInput) {
-        fmt::print("{} {}\n", e.direction, e.offset);
-    }
 }
 
-void DayTwo::parsePuzzle() {
+void DayTwo::parsePuzzlePart1() {
     for (auto& e : parsedInput) {
         if (e.direction == "forward") {
             position.x += e.offset;
@@ -48,6 +45,22 @@ void DayTwo::parsePuzzle() {
         }
         if (e.direction == "down") {
             position.y += e.offset;
+        }
+    }
+    fmt::print("{}", position.x * position.y);
+}
+
+void DayTwo::parsePuzzlePart2() {
+    for (auto& e : parsedInput) {
+        if (e.direction == "forward") {
+            position.x += e.offset;
+            position.y += e.offset * aim;
+        }
+        if (e.direction == "up") {
+            aim -= e.offset;
+        }
+        if (e.direction == "down") {
+            aim += e.offset;
         }
     }
     fmt::print("{}", position.x * position.y);

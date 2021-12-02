@@ -24,18 +24,14 @@ TEST(TestDay1, TestParsePuzzle) {
     dayOne.parsePuzzle();
     dayOne.parsePuzzleTwo();
 }
-TEST(TestDayTwo, TestInput) {
+TEST(TestDayTwo, TestParsePuzzlePart1) {
     DayTwo dayTwo("input2.txt");
     dayTwo.parseInput();
-    for (auto& i : dayTwo.rawInput) {
-        fmt::print("{}\n", i);
-    }
-    dayTwo.parsePuzzle();
+    dayTwo.parsePuzzlePart1();
 }
 
-TEST(TestDayTwo, TestParsedInput) {
-
-}
-TEST(TestDayTwo, TestParsePuzzle) {
-
+TEST(TestDayTwo, TestParsePuzzlePart2) {
+    DayTwo dayTwo("input2.txt");
+    dayTwo.parseInput();
+    dayTwo.parsePuzzlePart2();
 }

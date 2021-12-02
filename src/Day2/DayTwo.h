@@ -29,9 +29,11 @@ public:
     vector<ControlCommand> parsedInput;
     string fname;
     Position position;
+    int aim = 0;
     explicit DayTwo(string fname) : fname(std::move(fname)) {}
     void parseInput();
-    void parsePuzzle();
+    void parsePuzzlePart1();
+    void parsePuzzlePart2();
 
 };
 
