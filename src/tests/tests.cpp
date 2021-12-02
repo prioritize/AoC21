@@ -25,7 +25,12 @@ TEST(TestDay1, TestParsePuzzle) {
     dayOne.parsePuzzleTwo();
 }
 TEST(TestDayTwo, TestInput) {
-
+    DayTwo dayTwo("input2.txt");
+    dayTwo.parseInput();
+    for (auto& i : dayTwo.rawInput) {
+        fmt::print("{}\n", i);
+    }
+    dayTwo.parsePuzzle();
 }
 
 TEST(TestDayTwo, TestParsedInput) {

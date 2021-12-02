@@ -15,8 +15,40 @@ void DayTwo::parseInput() {
     while (getline(inFile, temp)) {
         rawInput.push_back(temp);
     }
+    std::regex c(R"(([a-z]{1,7})\s(\d))");
+
+    for (auto& l : rawInput) {
+        std::sregex_iterator currentMatch(l.begin(), l.end(), c);
+        std::sregex_iterator lastMatch;
+        std::smatch match = *currentMatch;
+        while (currentMatch != lastMatch) {
+            if (match.ready()) {
+                parsedInput.push_back({match[1], std::stoi(match[2])});
+            }
+            currentMatch++;
+        }
+    }
+    for (auto& e : parsedInput) {
+        fmt::print("{} {}\n", e.direction, e.offset);
+    }
 }
 
 void DayTwo::parsePuzzle() {
-
+    for (auto& e : parsedInput) {
+        if (e.direction == "forward") {
+            position.x += e.offset;
+        }
+        if (e.direction == "up") {
+            int possible = position.y - e.offset;
+            if (possible <= 0) {
+                position.y = 0;
+            } else {
+                position.y = possible;
+            }
+        }
+        if (e.direction == "down") {
+            position.y += e.offset;
+        }
+    }
+    fmt::print("{}", position.x * position.y);
 }

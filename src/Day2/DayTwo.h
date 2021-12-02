@@ -15,11 +15,20 @@ using std::vector;
 using std::ifstream;
 using std::stringstream;
 
+struct ControlCommand {
+    string direction;
+    int offset;
+};
+struct Position {
+    int x = 0;
+    int y = 0;
+};
 class DayTwo {
 public:
     vector<string> rawInput;
-    vector<string> parsedInput;
+    vector<ControlCommand> parsedInput;
     string fname;
+    Position position;
     explicit DayTwo(string fname) : fname(std::move(fname)) {}
     void parseInput();
     void parsePuzzle();
