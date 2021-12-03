@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include "../Day1/DayOne.h"
 #include "../Day2/DayTwo.h"
+#include "../Day3/DayThree.h"
 
 TEST(Tests, Test1) {
     EXPECT_EQ(1, 1);
@@ -34,4 +35,14 @@ TEST(TestDayTwo, TestParsePuzzlePart2) {
     DayTwo dayTwo("input2.txt");
     dayTwo.parseInput();
     dayTwo.parsePuzzlePart2();
+}
+TEST(TestDayThree, TestParsePuzzlePart1) {
+    DayThree dayThree("input3.txt");
+    dayThree.parseInput();
+    dayThree.parsePuzzlePart1();
+}
+TEST(TestDayThree, TestParsePuzzlePart2) {
+    DayThree dayThree("input3.txt");
+    dayThree.parseInput();
+    dayThree.parsePuzzlePart2();
 }
