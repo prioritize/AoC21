@@ -39,10 +39,23 @@ TEST(TestDayTwo, TestParsePuzzlePart2) {
 TEST(TestDayThree, TestParsePuzzlePart1) {
     DayThree dayThree("input3.txt");
     dayThree.parseInput();
-    dayThree.parsePuzzlePart1();
+    dayThree.makeBinary();
+    for (auto& i : dayThree.frequencies) {
+        fmt::print("{} ", i.zero);
+    }
+    fmt::print("\n");
+    for (auto& i : dayThree.frequencies) {
+        fmt::print("{} ", i.one);
+    }
+    fmt::print("\n");
 }
-TEST(TestDayThree, TestParsePuzzlePart2) {
+
+TEST (TestDayThree, TestMakeOxygenRating) {
     DayThree dayThree("input3.txt");
     dayThree.parseInput();
-    dayThree.parsePuzzlePart2();
+    int o2Rating = stringToBinary(dayThree.makeOxygenRating());
+    int co2Rating = stringToBinary(dayThree.makeCO2Rating());
+    fmt::print("o2rating: {}\n", o2Rating);
+    fmt::print("co2rating: {}\n", co2Rating);
+    fmt::print("life support rating: {}\n", o2Rating * co2Rating);
 }
